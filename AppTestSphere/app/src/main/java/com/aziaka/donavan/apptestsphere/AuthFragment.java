@@ -19,7 +19,7 @@ public class AuthFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-            View view = inflater.inflate(R.layout.fragment_auth, container, false);
+            final View view = inflater.inflate(R.layout.fragment_auth, container, false);
             final Button button = (Button) view.findViewById(R.id.validButton);
             final EditText name = (EditText) view.findViewById(R.id.username);
             final EditText city = (EditText) view.findViewById(R.id.usercity);
@@ -40,6 +40,9 @@ public class AuthFragment extends Fragment {
                         DetailFragment detail = new DetailFragment();
                         detail.setArguments(i);
 
+                        button.setVisibility(View.INVISIBLE);
+                        name.setVisibility(View.INVISIBLE);
+                        city.setVisibility(View.INVISIBLE);
                         final FragmentTransaction ft = getFragmentManager().beginTransaction();
                         ft.replace(R.id.detail_fragment, detail, "DetailFragmentTag");
                         ft.commit();
@@ -53,4 +56,5 @@ public class AuthFragment extends Fragment {
             });
             return view;
         }
+
 }

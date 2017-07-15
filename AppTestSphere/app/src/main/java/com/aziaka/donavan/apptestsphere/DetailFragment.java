@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class DetailFragment extends Fragment {
 
-    private int valueDegree;
+    private int valueCelsius;
     private int valueFahr;
     private int valueKelvin;
     private TextView nameView;
@@ -45,19 +45,25 @@ public class DetailFragment extends Fragment {
 
         System.out.println("Name of the city : " + city + "\nName of the user : " + name);
 
+        valueCelsius = 42;
+        valueFahr = (int)(valueCelsius * 1.8) + 32;
+        valueKelvin = valueCelsius + (int)273.15;
+
         nameView.setText(name);
         cityView.setText(city);
-        tempView.setText("42°C");
-        
+        tempView.setText(valueCelsius + "°C");
+
+
+
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if (tab.getPosition() == 0)
-                    tempView.setText("42°C");
+                    tempView.setText(valueCelsius + "°C");
                 else if (tab.getPosition() == 1)
-                    tempView.setText("42°F");
+                    tempView.setText(valueFahr + "°F");
                 else
-                    tempView.setText("42°K");
+                    tempView.setText(valueKelvin + "°K");
             }
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
