@@ -1,5 +1,6 @@
 package com.aziaka.donavan.apptestsphere;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -29,11 +30,18 @@ public class AuthFragment extends Fragment {
                 {
                     userCity = city.getText().toString();
                     userName = name.getText().toString();
-                    System.out.println("Name of the city : " + userCity + "\nName of the user : " + userName);
+                    //System.out.println("Name of the city : " + userCity + "\nName of the user : " + userName);
                     if (!userName.isEmpty() && !userCity.isEmpty())
                     {
+                        Bundle i = new Bundle();
+                        i.putString("userName", userName);
+                        i.putString("userCity", userCity);
+
+                        DetailFragment detail = new DetailFragment();
+                        detail.setArguments(i);
+
                         final FragmentTransaction ft = getFragmentManager().beginTransaction();
-                        ft.replace(R.id.detail_fragment, new DetailFragment(), "DetailFragmentTag");
+                        ft.replace(R.id.detail_fragment, detail, "DetailFragmentTag");
                         ft.commit();
                         ft.addToBackStack(null);
                     }
