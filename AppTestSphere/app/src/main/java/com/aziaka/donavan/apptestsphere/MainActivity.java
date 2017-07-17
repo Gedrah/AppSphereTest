@@ -1,6 +1,5 @@
 package com.aziaka.donavan.apptestsphere;
 
-
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;

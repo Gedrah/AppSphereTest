@@ -7,5 +7,8 @@
     <string name="app_editname">Saisissez votre prénom et votre nom</string>
     <string name="app_namedetail">Bonjour</string>
     <string name="app_citydetail">à</string>
-    <string name="app_weatherdetail">il fait très chaud:</string>
+    <string name="hot">Il fait très chaud :</string>
+    <string name="fine">La température est optimale :</string>
+    <string name="cold">Il fait assez froid :</string>
+    <string name="error_mess">Erreur : Saisissez un nom/prénom et une ville</string>
 </resources>

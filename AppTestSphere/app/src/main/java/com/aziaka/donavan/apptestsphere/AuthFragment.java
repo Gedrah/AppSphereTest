@@ -1,6 +1,8 @@
 package com.aziaka.donavan.apptestsphere;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -14,8 +16,6 @@ public class AuthFragment extends Fragment {
 
     private String userName = "";
     private String userCity = "";
-    private String weatherApiData;
-    private int temperature;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,7 +39,6 @@ public class AuthFragment extends Fragment {
                         Bundle i = new Bundle();
                         i.putString("userName", userName);
                         i.putString("userCity", userCity);
-                        i.putInt("temp", temperature);
 
                         detail.setArguments(i);
 
@@ -49,11 +48,15 @@ public class AuthFragment extends Fragment {
                         final FragmentTransaction ft = getFragmentManager().beginTransaction();
                         ft.replace(R.id.detail_fragment, detail, "DetailFragmentTag");
                         ft.commit();
-                        ft.addToBackStack(null);
                     }
                     else
                     {
-                        // put error banner
+                        Snackbar snackbar = Snackbar
+                                .make(view, getString(R.string.error_mess), Snackbar.LENGTH_LONG);
+                        snackbar.setActionTextColor(Color.RED);
+                        View snackbarView = snackbar.getView();
+                        snackbarView.setBackgroundColor(Color.DKGRAY);
+                        snackbar.show();
                     }
                 }
             });

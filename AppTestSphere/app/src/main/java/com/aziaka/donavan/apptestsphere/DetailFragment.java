@@ -15,6 +15,7 @@ public class DetailFragment extends Fragment {
     private int valueKelvin;
     private TextView nameView;
     private TextView cityView;
+    private TextView messView;
     private TextView tempView;
     private TabLayout tabs;
 
@@ -35,6 +36,15 @@ public class DetailFragment extends Fragment {
         valueCelsius = valueKelvin - (int)273.15;
         valueFahr = (int)(valueKelvin * 1.8) - (int)459.67;
         tempView.setText(valueCelsius + "°C");
+        if (valueCelsius > 20) {
+            messView.setHint(getString(R.string.hot));
+        }
+        else if (valueCelsius < 10) {
+            messView.setHint(getString(R.string.cold));
+        }
+        else {
+            messView.setHint(getString(R.string.fine));
+        }
     }
 
     @Override
@@ -44,12 +54,11 @@ public class DetailFragment extends Fragment {
         nameView = (TextView) view.findViewById(R.id.name_info);
         cityView = (TextView) view.findViewById(R.id.city_infos);
         tempView = (TextView) view.findViewById(R.id.nbr_data);
+        messView = (TextView) view.findViewById(R.id.weather_info);
         tabs = (TabLayout) view.findViewById(R.id.tabs);
 
         String city = cityView.getHint().toString() + " " + getArguments().getString("userCity");
         String name = nameView.getHint().toString() + " " +getArguments().getString("userName");
-
-        System.out.println("Name of the city : " + city + "\nName of the user : " + name);
 
         valueKelvin = 0;
         valueCelsius = 0;
