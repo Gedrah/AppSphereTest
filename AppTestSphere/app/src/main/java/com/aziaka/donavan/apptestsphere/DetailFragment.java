@@ -37,13 +37,13 @@ public class DetailFragment extends Fragment {
         valueFahr = (int)(valueKelvin * 1.8) - (int)459.67;
         tempView.setText(valueCelsius + "°C");
         if (valueCelsius > 20) {
-            messView.setHint(getString(R.string.hot));
+            messView.setText(getString(R.string.hot));
         }
         else if (valueCelsius < 10) {
-            messView.setHint(getString(R.string.cold));
+            messView.setText(getString(R.string.cold));
         }
         else {
-            messView.setHint(getString(R.string.fine));
+            messView.setText(getString(R.string.fine));
         }
     }
 
