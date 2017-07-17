@@ -29,6 +29,14 @@ public class DetailFragment extends Fragment {
 
     }
 
+    public void setDatas(int currentTemperature)
+    {
+        valueKelvin = currentTemperature;
+        valueCelsius = valueKelvin - (int)273.15;
+        valueFahr = (int)(valueKelvin * 1.8) - (int)459.67;
+        tempView.setText(valueCelsius + "°C");
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -43,14 +51,13 @@ public class DetailFragment extends Fragment {
 
         System.out.println("Name of the city : " + city + "\nName of the user : " + name);
 
-        valueCelsius = 42;
-        valueFahr = (int)(valueCelsius * 1.8) + 32;
-        valueKelvin = valueCelsius + (int)273.15;
+        valueKelvin = 0;
+        valueCelsius = 0;
+        valueFahr = 0;
 
         nameView.setText(name);
         cityView.setText(city);
         tempView.setText(valueCelsius + "°C");
-
 
 
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
