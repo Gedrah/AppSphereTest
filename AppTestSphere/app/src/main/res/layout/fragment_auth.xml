@@ -10,12 +10,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:ems="10"
             android:hint="@string/app_editname"
+            android:layout_above="@+id/usercity"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="16dp"
-            android:layout_above="@+id/usercity"
             android:layout_alignParentStart="true"/>
     <EditText
             android:id="@+id/usercity"
@@ -23,23 +22,19 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:hint="@string/app_editcity"
-            android:ems="10"
-            android:layout_above="@+id/validButton"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
             android:layout_marginBottom="21dp"/>
     <Button
+            android:id="@+id/validButton"
             android:text="valider"
+            android:layout_below="@+id/usercity"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:textColor="@color/colorText"
             android:background="@color/colorAccent"
-            android:id="@+id/validButton"
             android:contextClickable="true"
-            android:layout_marginBottom="186dp"
             android:layout_alignRight="@id/usercity"
-            android:layout_marginRight="10dp"
-
-            android:layout_alignParentBottom="true"/>
+            android:layout_marginRight="10dp"/>
 </RelativeLayout>

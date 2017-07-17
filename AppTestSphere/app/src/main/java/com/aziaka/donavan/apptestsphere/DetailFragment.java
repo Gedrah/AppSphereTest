@@ -1,7 +1,5 @@
 package com.aziaka.donavan.apptestsphere;
 
-import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -36,7 +34,7 @@ public class DetailFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
         nameView = (TextView) view.findViewById(R.id.name_info);
-        cityView = (TextView) view.findViewById(R.id.city_info);
+        cityView = (TextView) view.findViewById(R.id.city_infos);
         tempView = (TextView) view.findViewById(R.id.nbr_data);
         tabs = (TabLayout) view.findViewById(R.id.tabs);
 
@@ -77,16 +75,6 @@ public class DetailFragment extends Fragment {
         });
 
         return view;
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
     }
 
 }
